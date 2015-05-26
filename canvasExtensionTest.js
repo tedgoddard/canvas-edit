@@ -44,10 +44,14 @@ function verticalRegister() {
 function vertical() {
     console.log("vertical()");
     setup();
+try {
     tinymce.activeEditor.formatter.remove('rightpanel');
     tinymce.activeEditor.formatter.remove('rightimage');
     tinymce.activeEditor.formatter.toggle('vertical-edit');
     tinymce.activeEditor.formatter.toggle('vertical');
+} catch(e) {
+    console.log(e);
+}
 }
 
 function toolButton(toolDiv, title, operation) {
