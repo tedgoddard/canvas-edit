@@ -42,8 +42,8 @@ if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathnam
     toolDiv.style.left = "180px";
     toolDiv.style.zIndex = 1000;
 
-    toolButton(tooDiv, "Two Panel", addFancyBox);
-    toolButton(tooDiv, "Red", redLetters);
+    toolButton(toolDiv, "Two Panel", addFancyBox);
+    toolButton(toolDiv, "Red", redLetters);
 
     document.body.appendChild(toolDiv);
 }
