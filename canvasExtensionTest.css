@@ -5,7 +5,7 @@
 
 .tex-rightimage img {
     float: right;
-    -webkit-filter: blur(8px);
+    -webkit-filter: blur(4px);
 }
 
 .tex-vertical-line {
