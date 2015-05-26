@@ -7,3 +7,19 @@
     float: right;
     -webkit-filter: blur(8px);
 }
+
+.tex-vertical-line {
+    float: right;
+    width: 8px;
+    height: 100%;
+    background-color: red;
+}
+
+.mce-content-body .tex-vertical-line {
+    content: "V E R T I C A L"
+    float: none;
+    width: auto;
+    height: auto;
+    background-color: grey;
+}
+
