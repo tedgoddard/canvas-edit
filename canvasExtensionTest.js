@@ -69,6 +69,10 @@ function toolButton(toolDiv, title, operation) {
     newButton.onclick = operation;
 }
 
+function setup() {
+    verticalRegister();
+}
+
 if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathname.length) {
     var toolDiv = document.createElement("div");
     toolDiv.style.position = "fixed";
@@ -76,11 +80,11 @@ if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathnam
     toolDiv.style.left = "180px";
     toolDiv.style.zIndex = 1000;
 
+    toolButton(toolDiv, "Setup", setup);
     toolButton(toolDiv, "Two Panel", addFancyBox);
     toolButton(toolDiv, "Red", redLetters);
     toolButton(toolDiv, "Right Panel", rightPanel);
     toolButton(toolDiv, "Right Image", rightImage);
-    verticalRegister();
     toolButton(toolDiv, "|", vertical);
 
     document.body.appendChild(toolDiv);
