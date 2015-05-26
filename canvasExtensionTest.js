@@ -30,7 +30,7 @@ function rightPanel() {
     console.log("rightPanel()");
     if (window.tinymce) {
         tinymce.activeEditor.formatter.register('rightpanel', {
-           inline : 'div',
+           block : 'p',
            classes : "texrightpanel"
          });
          tinymce.activeEditor.formatter.toggle('rightpanel');
