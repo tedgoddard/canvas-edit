@@ -137,6 +137,7 @@ if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathnam
     toolButton(toolDiv, "Right Panel", rightPanel);
     toolButton(toolDiv, "Right Image", rightImage);
     toolButton(toolDiv, "|", vertical);
+    toolButton(toolDiv, "BoxLink", boxLink);
 
     document.body.appendChild(toolDiv);
 }
