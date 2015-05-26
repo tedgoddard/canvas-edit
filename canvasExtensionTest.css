@@ -3,9 +3,9 @@
     background-color: blue;
 }
 
-.tex-rightimage img[style] {
+.tex-rightimage img {
     position: absolute;
-    max-width: 40%;
+    max-width: 40% !important;
     right: 20px;
     top: 20px;
     -webkit-filter: blur(2px);
