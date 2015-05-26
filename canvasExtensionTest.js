@@ -51,7 +51,7 @@ function vertical() {
     if (window.tinymce) {
         tinymce.activeEditor.formatter.register('vertical', {
            block : 'p',
-           styles : {content : 'V R T C L'},
+           styles : {"background-color": "grey", width: "20px", content : 'V R T C L'},
            classes : "tex-vertical-line"
          });
          tinymce.activeEditor.formatter.toggle('vertical');
