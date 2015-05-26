@@ -14,16 +14,36 @@ function addFancyBox() {
     }
 }
 
+function redLetters() {
+    console.log("redLetters()");
+    if (window.tinymce) {
+        tinymce.activeEditor.formatter.register('redletters', {
+           inline : 'span',
+           styles : {color : '#ff0000'},
+           classes : "fancybox"
+         });
+         tinymce.activeEditor.formatter.toggle('redletters');
+    }
+}
+
+
+function toolButton(toolDiv, title, operation) {
+    var newButton = document.createElement("button");
+    toolDiv.appendChild(newButton);
+    var buttonTitle = document.createTextNode(title);
+    newButton.appendChild(buttonTitle);
+    newButton.onclick = operation;
+}
+
 if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathname.length) {
     var toolDiv = document.createElement("div");
     toolDiv.style.position = "fixed";
     toolDiv.style.bottom = "0px";
     toolDiv.style.left = "180px";
-    toolDiv.style.zIndex = 1000
-    var formatButton = document.createElement("button");
-    toolDiv.appendChild(formatButton);
+    toolDiv.style.zIndex = 1000;
+
+    toolButton(tooDiv, "Two Panel", addFancyBox);
+    toolButton(tooDiv, "Red", redLetters);
+
     document.body.appendChild(toolDiv);
-    var buttonTitle = document.createTextNode("Two Panel");
-    formatButton.appendChild(buttonTitle);
-    formatButton.onclick = addFancyBox;
 }
