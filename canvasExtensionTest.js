@@ -1,5 +1,5 @@
 if (window.console) {
-    console.log("We control the horizontal 2.");
+    console.log("We control the horizontal 3.");
 }
 
 function addFancyBox() {
@@ -14,7 +14,7 @@ function addFancyBox() {
     }
 }
 
-if (window.tinymce) {
+if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathname.length) {
     var toolDiv = document.createElement("div");
     toolDiv.style.position = "fixed";
     toolDiv.style.bottom = "0px";
