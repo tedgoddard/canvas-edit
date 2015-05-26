@@ -3,7 +3,7 @@
     background-color: blue;
 }
 
-.tex-rightpanel img {
+.tex-rightimage img {
     float: right;
-    -webkit-filter: blur(20px);
+    -webkit-filter: blur(8px);
 }
