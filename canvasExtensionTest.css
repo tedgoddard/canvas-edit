@@ -9,17 +9,10 @@
 }
 
 .tex-vertical-line {
-    float: right;
-    width: 8px;
+    position: absolute;
+    width: 1px;
     height: 100%;
     background-color: red;
-}
-
-.mce-content-body .tex-vertical-line {
-    content: "V E R T I C A L"
-    float: none;
-    width: auto;
-    height: auto;
-    background-color: grey;
+    right: 50%'
 }
 
