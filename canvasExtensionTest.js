@@ -29,6 +29,8 @@ function redLetters() {
 function boxLink() {
     console.log("boxLink()");
     setup();
+    removeOthers();
+    tinymce.activeEditor.formatter.toggle('boxlink-edit');
     tinymce.activeEditor.formatter.toggle('boxlink');
 }
 
@@ -51,8 +53,7 @@ function vertical() {
     console.log("vertical()");
     setup();
 try {
-    tinymce.activeEditor.formatter.remove('rightpanel');
-    tinymce.activeEditor.formatter.remove('rightimage');
+    removeOthers();
 //    tinymce.activeEditor.formatter.toggle('vertical-edit-color');
 //    tinymce.activeEditor.formatter.toggle('vertical-edit-width');
 //    tinymce.activeEditor.formatter.toggle('vertical-edit');
@@ -62,6 +63,11 @@ try {
 } catch(e) {
     console.log(e);
 }
+}
+
+function removeOthers() {
+    tinymce.activeEditor.formatter.remove('rightpanel');
+    tinymce.activeEditor.formatter.remove('rightimage');
 }
 
 function toolButton(toolDiv, title, operation) {
