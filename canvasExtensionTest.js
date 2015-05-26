@@ -52,6 +52,7 @@ function verticalRegister() {
         tinymce.activeEditor.formatter.register('vertical', {
            block : 'p',
 //           styles : {"background-color": "grey", width: "20px", content : 'V R T C L'},
+           styles : {color : '#0000ff'},
            classes : "tex-vertical-line"
          });
     }
