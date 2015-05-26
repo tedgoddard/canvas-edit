@@ -51,13 +51,14 @@ function verticalRegister() {
     if (window.tinymce) {
         tinymce.activeEditor.formatter.register('vertical', {
            block : 'p',
-           styles : {"background-color": "grey", width: "20px", content : 'V R T C L'},
+//           styles : {"background-color": "grey", width: "20px", content : 'V R T C L'},
            classes : "tex-vertical-line"
          });
     }
 }
 function vertical() {
     console.log("vertical()");
+    verticalRegister();
     tinymce.activeEditor.formatter.toggle('vertical');
 }
 
