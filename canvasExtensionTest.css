@@ -21,3 +21,8 @@
     right: 50%;
 }
 
+.tex-box-link {
+    background-color: white;
+    border: 1px;
+    margin: 20px;
+}

@@ -26,6 +26,12 @@ function redLetters() {
     }
 }
 
+function boxLink() {
+    console.log("boxLink()");
+    setup();
+    tinymce.activeEditor.formatter.toggle('boxlink');
+}
+
 function rightPanel() {
     console.log("rightPanel()");
     setup();
@@ -92,6 +98,15 @@ function setup() {
         tinymce.activeEditor.formatter.register('vertical-edit-width', {
            block : 'p',
            styles : {width: '40px'},
+         });
+
+        tinymce.activeEditor.formatter.register('boxlink-edit', {
+           block : 'p',
+           styles : {border: '1px'},
+         });
+        tinymce.activeEditor.formatter.register('boxlink', {
+           block : 'p',
+           classes : "tex-boxlink"
          });
 
         tinymce.activeEditor.formatter.register('rightpanel', {
