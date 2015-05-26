@@ -3,7 +3,7 @@
     background-color: blue;
 }
 
-.tex-rightimage img {
+.tex-rightimage img[style] {
     position: absolute;
     max-width: 40%;
     right: 20px;
