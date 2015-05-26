@@ -26,6 +26,16 @@ function redLetters() {
     }
 }
 
+function rightPanel() {
+    console.log("rightPanel()");
+    if (window.tinymce) {
+        tinymce.activeEditor.formatter.register('rightpanel', {
+           inline : 'div',
+           classes : "texrightpanel"
+         });
+         tinymce.activeEditor.formatter.toggle('rightpanel');
+    }
+}
 
 function toolButton(toolDiv, title, operation) {
     var newButton = document.createElement("button");
@@ -44,6 +54,7 @@ if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathnam
 
     toolButton(toolDiv, "Two Panel", addFancyBox);
     toolButton(toolDiv, "Red", redLetters);
+    toolButton(toolDiv, "Right Panel", rightPanel);
 
     document.body.appendChild(toolDiv);
 }
