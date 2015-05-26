@@ -14,14 +14,16 @@ function addFancyBox() {
     }
 }
 
-var toolDiv = document.createElement("div");
-toolDiv.style.position = "fixed";
-toolDiv.style.bottom = "0px";
-toolDiv.style.left = "180px";
-toolDiv.style.zIndex = 1000
-var formatButton = document.createElement("button");
-toolDiv.appendChild(formatButton);
-document.body.appendChild(toolDiv);
-var buttonTitle = document.createTextNode("Two Panel");
-formatButton.appendChild(buttonTitle);
-formatButton.onclick = addFancyBox;
+if (window.tinymce) {
+    var toolDiv = document.createElement("div");
+    toolDiv.style.position = "fixed";
+    toolDiv.style.bottom = "0px";
+    toolDiv.style.left = "180px";
+    toolDiv.style.zIndex = 1000
+    var formatButton = document.createElement("button");
+    toolDiv.appendChild(formatButton);
+    document.body.appendChild(toolDiv);
+    var buttonTitle = document.createTextNode("Two Panel");
+    formatButton.appendChild(buttonTitle);
+    formatButton.onclick = addFancyBox;
+}
