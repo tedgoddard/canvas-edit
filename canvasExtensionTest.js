@@ -50,7 +50,7 @@ try {
 //    tinymce.activeEditor.formatter.toggle('vertical-edit-color');
 //    tinymce.activeEditor.formatter.toggle('vertical-edit-width');
 //    tinymce.activeEditor.formatter.toggle('vertical-edit');
-    tinymce.activeEditor.insertContent("- V E R T I C A L - L I N E -")
+    tinymce.activeEditor.insertContent("- V E R T I C A L - L I N E -");
     tinymce.activeEditor.formatter.toggle('vertical');
 
 } catch(e) {
