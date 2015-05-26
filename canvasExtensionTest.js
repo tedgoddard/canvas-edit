@@ -71,7 +71,6 @@ function setup() {
 
         tinymce.activeEditor.formatter.register('vertical', {
            block : 'p',
-           styles : {color : '#0000ff'},
            classes : "tex-vertical-line"
          });
 
