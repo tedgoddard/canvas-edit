@@ -23,6 +23,8 @@
 
 .tex-box-link {
     background-color: white;
-    border: 1px;
+    border-width: 1px;
+    border-bottom-width: 2px;
+    border-style: solid;
     margin: 20px;
 }
