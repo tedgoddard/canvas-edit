@@ -2,3 +2,8 @@
     float: right;
     background-color: blue;
 }
+
+.tex-rightpanel img {
+    float: right;
+    -webkit-filter: blur(20px);
+}

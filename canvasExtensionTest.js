@@ -36,6 +36,16 @@ function rightPanel() {
          tinymce.activeEditor.formatter.toggle('rightpanel');
     }
 }
+function rightImage() {
+    console.log("rightImage()");
+    if (window.tinymce) {
+        tinymce.activeEditor.formatter.register('rightimage', {
+           block : 'p',
+           classes : "tex-rightimage"
+         });
+         tinymce.activeEditor.formatter.toggle('rightimage');
+    }
+}
 
 function toolButton(toolDiv, title, operation) {
     var newButton = document.createElement("button");
@@ -55,6 +65,7 @@ if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathnam
     toolButton(toolDiv, "Two Panel", addFancyBox);
     toolButton(toolDiv, "Red", redLetters);
     toolButton(toolDiv, "Right Panel", rightPanel);
+    toolButton(toolDiv, "Right Image", rightImage);
 
     document.body.appendChild(toolDiv);
 }
