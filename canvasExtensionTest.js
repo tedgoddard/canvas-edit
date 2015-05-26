@@ -28,38 +28,25 @@ function redLetters() {
 
 function rightPanel() {
     console.log("rightPanel()");
-    if (window.tinymce) {
-        tinymce.activeEditor.formatter.register('rightpanel', {
-           block : 'p',
-           classes : "tex-rightpanel"
-         });
-         tinymce.activeEditor.formatter.toggle('rightpanel');
-    }
+    setup();
+    tinymce.activeEditor.formatter.toggle('rightpanel');
 }
+
 function rightImage() {
     console.log("rightImage()");
-    if (window.tinymce) {
-        tinymce.activeEditor.formatter.register('rightimage', {
-           block : 'p',
-           classes : "tex-rightimage"
-         });
-         tinymce.activeEditor.formatter.toggle('rightimage');
-    }
+    setup();
+    tinymce.activeEditor.formatter.toggle('rightimage');
 }
+
 function verticalRegister() {
     console.log("verticalRegister()");
-    if (window.tinymce) {
-        tinymce.activeEditor.formatter.register('vertical', {
-           block : 'p',
-//           styles : {"background-color": "grey", width: "20px", content : 'V R T C L'},
-           styles : {color : '#0000ff'},
-           classes : "tex-vertical-line"
-         });
-    }
 }
 function vertical() {
     console.log("vertical()");
-    verticalRegister();
+    setup();
+    tinymce.activeEditor.formatter.remove('rightpanel');
+    tinymce.activeEditor.formatter.remove('rightimage');
+    tinymce.activeEditor.formatter.toggle('vertical-edit');
     tinymce.activeEditor.formatter.toggle('vertical');
 }
 
@@ -71,8 +58,38 @@ function toolButton(toolDiv, title, operation) {
     newButton.onclick = operation;
 }
 
+var texEditorRegistered = false;
 function setup() {
-    verticalRegister();
+    if (!window.tinymce) {
+        return;
+    }
+    if (!texEditorRegistered) {
+
+        tinymce.activeEditor.formatter.register('vertical', {
+           block : 'p',
+           styles : {color : '#0000ff'},
+           classes : "tex-vertical-line"
+         });
+
+        tinymce.activeEditor.formatter.register('vertical-edit', {
+           block : 'p',
+//           styles : {"background-color": "grey", width: "20px", content : 'V R T C L'},
+           styles : {color : 'grey', width: '40px'},
+         });
+
+        tinymce.activeEditor.formatter.register('rightpanel', {
+           block : 'p',
+           classes : "tex-rightpanel"
+         });
+
+        tinymce.activeEditor.formatter.register('rightimage', {
+           block : 'p',
+           classes : "tex-rightimage"
+         });
+
+
+        texEditorRegistered = true;
+    }
 }
 
 if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathname.length) {
