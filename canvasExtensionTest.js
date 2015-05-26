@@ -47,7 +47,8 @@ function vertical() {
 try {
     tinymce.activeEditor.formatter.remove('rightpanel');
     tinymce.activeEditor.formatter.remove('rightimage');
-    tinymce.activeEditor.formatter.toggle('vertical-edit');
+    tinymce.activeEditor.formatter.toggle('vertical-edit-color');
+    tinymce.activeEditor.formatter.toggle('vertical-edit-width');
     tinymce.activeEditor.formatter.toggle('vertical');
 } catch(e) {
     console.log(e);
@@ -74,10 +75,14 @@ function setup() {
            classes : "tex-vertical-line"
          });
 
-        tinymce.activeEditor.formatter.register('vertical-edit', {
+        tinymce.activeEditor.formatter.register('vertical-edit-color', {
            block : 'p',
 //           styles : {"background-color": "grey", width: "20px", content : 'V R T C L'},
-           styles : {color : 'grey', width: '40px'},
+           styles : {color : 'grey'},
+         });
+        tinymce.activeEditor.formatter.register('vertical-edit-width', {
+           block : 'p',
+           styles : {width: '40px'},
          });
 
         tinymce.activeEditor.formatter.register('rightpanel', {
