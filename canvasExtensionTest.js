@@ -46,16 +46,19 @@ function rightImage() {
          tinymce.activeEditor.formatter.toggle('rightimage');
     }
 }
-function vertical() {
-    console.log("vertical()");
+function verticalRegister() {
+    console.log("verticalRegister()");
     if (window.tinymce) {
         tinymce.activeEditor.formatter.register('vertical', {
            block : 'p',
            styles : {"background-color": "grey", width: "20px", content : 'V R T C L'},
            classes : "tex-vertical-line"
          });
-         tinymce.activeEditor.formatter.toggle('vertical');
     }
+}
+function vertical() {
+    console.log("vertical()");
+    tinymce.activeEditor.formatter.toggle('vertical');
 }
 
 function toolButton(toolDiv, title, operation) {
@@ -77,6 +80,7 @@ if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathnam
     toolButton(toolDiv, "Red", redLetters);
     toolButton(toolDiv, "Right Panel", rightPanel);
     toolButton(toolDiv, "Right Image", rightImage);
+    verticalRegister();
     toolButton(toolDiv, "|", vertical);
 
     document.body.appendChild(toolDiv);
