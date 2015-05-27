@@ -152,7 +152,7 @@ if (onPage("/edit")) {
     document.body.appendChild(toolDiv);
 }
 
-if (window.tinyMCE && !onPage("/settings")) {
+if (window.tinyMCE && onPage("/custom-editor-test")) {
     var oldInit = tinyMCE.init;
     tinyMCE.init = function(options) {
         console.log("tinyMCE override redux");
