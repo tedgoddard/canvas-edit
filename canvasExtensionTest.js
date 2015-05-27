@@ -1,5 +1,5 @@
 if (window.console) {
-    console.log("We control the horizontal 4.");
+    console.log("We control the horizontal 5.");
 }
 
 function addFancyBox() {
@@ -152,6 +152,14 @@ if (window.tinyMCE) {
         var oldInit = tinyMCE.init;
         tinyMCE.init = function(options) {
             console.log("tinyMCE override");
+            var contentCSS = ["https://tedgoddard.github.io/canvas-edit/canvasExtensionTest.css"];
+            var oldContentCSS = options["content_css"];
+            if (typeof oldContentCSS == 'string') {
+                contentCSS.push(oldContentCSS);
+            } else {
+                contentCSS = contentCSS.concat(oldContentCSS);
+            }
+            options["content_css"] = contentCSS;
             console.log(options);
             oldInit(options);
         }
