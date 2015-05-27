@@ -29,3 +29,8 @@
     margin: 20px;
     padding: 20px;
 }
+
+.mce-content-body .tex-vertical-line {
+    background-color: green;
+    width: 40px;
+}
