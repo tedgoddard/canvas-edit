@@ -130,11 +130,11 @@ function setup() {
     }
 }
 
-function onEditPage() {
-    return (document.location.pathname.indexOf("/edit") + 5 == document.location.pathname.length);
+function onPage(name) {
+    return (document.location.pathname.indexOf(name) + name.length == document.location.pathname.length);
 }
 
-if (onEditPage()) {
+if (onPage("/edit")) {
     var toolDiv = document.createElement("div");
     toolDiv.style.position = "fixed";
     toolDiv.style.bottom = "0px";
@@ -152,7 +152,7 @@ if (onEditPage()) {
     document.body.appendChild(toolDiv);
 }
 
-if (window.tinyMCE) {
+if (window.tinyMCE && !onPage("/settings")) {
     var oldInit = tinyMCE.init;
     tinyMCE.init = function(options) {
         console.log("tinyMCE override redux");
