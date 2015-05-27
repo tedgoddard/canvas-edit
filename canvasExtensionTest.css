@@ -23,8 +23,8 @@
 
 .tex-boxlink {
     background-color: white;
-    border-width: 1px;
-    border-bottom-width: 2px;
+    border-width: 1px !important;
+    border-bottom-width: 2px !important;
     border-style: solid;
     margin: 20px;
 }

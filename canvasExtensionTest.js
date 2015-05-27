@@ -108,7 +108,7 @@ function setup() {
 
         tinymce.activeEditor.formatter.register('boxlink-edit', {
            block : 'p',
-           styles : {border-style: 'solid'},
+           styles : {borderStyle: 'solid'},
          });
         tinymce.activeEditor.formatter.register('boxlink', {
            block : 'p',
