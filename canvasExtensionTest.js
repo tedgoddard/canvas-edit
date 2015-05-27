@@ -130,7 +130,11 @@ function setup() {
     }
 }
 
-if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathname.length) {
+function onEditPage() {
+    return (document.location.pathname.indexOf("/edit") + 5 == document.location.pathname.length);
+}
+
+if (onEditPage()) {
     var toolDiv = document.createElement("div");
     toolDiv.style.position = "fixed";
     toolDiv.style.bottom = "0px";
@@ -148,19 +152,19 @@ if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathnam
     document.body.appendChild(toolDiv);
 }
 
-//if (window.tinyMCE) {
-//        var oldInit = tinyMCE.init;
-//        tinyMCE.init = function(options) {
-//            console.log("tinyMCE override");
-//            var contentCSS = ["https://tedgoddard.github.io/canvas-edit/canvasExtensionTest.css"];
-//            var oldContentCSS = options["content_css"];
-//            if (typeof oldContentCSS == 'string') {
-//                contentCSS.push(oldContentCSS);
-//            } else {
-//                contentCSS = contentCSS.concat(oldContentCSS);
-//            }
-//            options["content_css"] = contentCSS;
-//            console.log(options);
-//            oldInit(options);
-//        }
-//}
+if (window.tinyMCE) {
+    var oldInit = tinyMCE.init;
+    tinyMCE.init = function(options) {
+        console.log("tinyMCE override");
+        var contentCSS = ["https://tedgoddard.github.io/canvas-edit/canvasExtensionTest.css"];
+        var oldContentCSS = options["content_css"];
+        if (typeof oldContentCSS == 'string') {
+            contentCSS.push(oldContentCSS);
+        } else {
+            contentCSS = contentCSS.concat(oldContentCSS);
+        }
+        options["content_css"] = contentCSS;
+        console.log(options);
+        oldInit(options);
+    }
+}
