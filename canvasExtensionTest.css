@@ -28,6 +28,8 @@
     border-style: solid;
     margin: 20px;
     padding: 20px;
+    float: right;
+    width: 300px;
 }
 
 .mce-content-body .tex-vertical-line {
