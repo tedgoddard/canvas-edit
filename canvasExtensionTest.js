@@ -101,14 +101,11 @@ function setup() {
 //           styles : {"background-color": "grey", width: "20px", content : 'V R T C L'},
            styles : {color : 'grey'},
          });
-        tinymce.activeEditor.formatter.register('vertical-edit-width', {
-           block : 'p',
-           styles : {width: '40px'},
-         });
+        tinymce.activeEditor.formatter.register('vertical-edit-width', {block : 'p', styles : {width: '40px'}});
 
         tinymce.activeEditor.formatter.register('boxlink-edit', {
            block : 'p',
-           styles : {borderStyle: 'solid'},
+           styles : {borderStyle: 'solid', color: 'red'}
          });
         tinymce.activeEditor.formatter.register('boxlink', {
            block : 'p',
