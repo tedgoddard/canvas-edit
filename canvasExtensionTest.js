@@ -152,6 +152,7 @@ if (window.tinyMCE) {
         var oldInit = tinyMCE.init;
         tinyMCE.init = function(options) {
             console.log("tinyMCE override");
-            tinyMCE.init(options);
+            console.log(options);
+            oldInit(options);
         }
 }
