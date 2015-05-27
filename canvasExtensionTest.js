@@ -1,5 +1,5 @@
 if (window.console) {
-    console.log("We control the horizontal 6.");
+    console.log("We control the horizontal 9.");
 }
 
 function addFancyBox() {
@@ -156,10 +156,11 @@ if (onPage("/edit")) {
     document.body.appendChild(toolDiv);
 }
 
-if (window.tinyMCE && nearPage("/custom-editor-test")) {
-    var oldInit = tinyMCE.init;
-    tinyMCE.init = function(options) {
-        console.log("tinyMCE override redux");
+//Security restrictions in the browser may prevent this
+//if (window.tinyMCE && nearPage("/custom-editor-test")) {
+//    var oldInit = tinyMCE.init;
+//    tinyMCE.init = function(options) {
+//        console.log("tinyMCE override redux");
 //        var contentCSS = ["https://tedgoddard.github.io/canvas-edit/canvasExtensionTest.css"];
 //        var oldContentCSS = options["content_css"];
 //        if (typeof oldContentCSS == 'string') {
@@ -168,7 +169,7 @@ if (window.tinyMCE && nearPage("/custom-editor-test")) {
 //            contentCSS = contentCSS.concat(oldContentCSS);
 //        }
 //        options["content_css"] = contentCSS;
-        console.log(options);
-        oldInit(options);
-    }
-}
+//        console.log(options);
+//        oldInit(options);
+//    }
+//}
