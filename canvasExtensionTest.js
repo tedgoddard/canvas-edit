@@ -1,5 +1,5 @@
 if (window.console) {
-    console.log("We control the horizontal 3.");
+    console.log("We control the horizontal 4.");
 }
 
 function addFancyBox() {
@@ -146,4 +146,12 @@ if (document.location.pathname.indexOf("/edit") + 5 == document.location.pathnam
     toolButton(toolDiv, "BoxLink", boxLink);
 
     document.body.appendChild(toolDiv);
+}
+
+if (window.tinyMCE) {
+        var oldInit = tinyMCE.init;
+        tinyMCE.init = function(options) {
+            console.log("tinyMCE override");
+            tinyMCE.init(options);
+        }
 }
