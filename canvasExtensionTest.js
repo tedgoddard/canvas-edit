@@ -46,6 +46,17 @@ function rightImage() {
     tinymce.activeEditor.formatter.toggle('rightimage');
 }
 
+function floatLeft() {
+    console.log("floatLeft()");
+    setup();
+    tinymce.activeEditor.formatter.toggle('floatleft');
+}
+function floatRight() {
+    console.log("floatRight()");
+    setup();
+    tinymce.activeEditor.formatter.toggle('floatright');
+}
+
 function verticalRegister() {
     console.log("verticalRegister()");
 }
@@ -123,6 +134,18 @@ function setup() {
          });
 
 
+        tinymce.activeEditor.formatter.register('floatleft', {
+           block: 'div',
+           classes: "tex-floatleft",
+           wrapper: true
+         });
+
+        tinymce.activeEditor.formatter.register('floatright', {
+           block: 'div',
+           classes: "tex-floatright",
+           wrapper: true
+         });
+
         texEditorRegistered = true;
     }
 }
@@ -149,6 +172,8 @@ if (onPage("/edit")) {
     toolButton(toolDiv, "Right Image", rightImage);
     toolButton(toolDiv, "|", vertical);
     toolButton(toolDiv, "BoxLink", boxLink);
+    toolButton(toolDiv, "fL", floatLeft);
+    toolButton(toolDiv, "fR", floatRight);
 
     document.body.appendChild(toolDiv);
 }

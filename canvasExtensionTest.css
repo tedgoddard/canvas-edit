@@ -1,3 +1,9 @@
+.tex-floatright {
+    float: right;
+}
+.tex-floatleft {
+    float: left;
+}
 .tex-rightpanel {
     float: right;
     background-color: blue;
