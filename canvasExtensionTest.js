@@ -1,5 +1,5 @@
 if (window.console) {
-    console.log("We control the horizontal 5.");
+    console.log("We control the horizontal 6.");
 }
 
 function addFancyBox() {
@@ -134,6 +134,10 @@ function onPage(name) {
     return (document.location.pathname.indexOf(name) + name.length == document.location.pathname.length);
 }
 
+function nearPage(name) {
+    return (document.location.pathname.indexOf(name) > 0);
+}
+
 if (onPage("/edit")) {
     var toolDiv = document.createElement("div");
     toolDiv.style.position = "fixed";
@@ -152,7 +156,7 @@ if (onPage("/edit")) {
     document.body.appendChild(toolDiv);
 }
 
-if (window.tinyMCE && onPage("/custom-editor-test")) {
+if (window.tinyMCE && nearPage("/custom-editor-test")) {
     var oldInit = tinyMCE.init;
     tinyMCE.init = function(options) {
         console.log("tinyMCE override redux");
