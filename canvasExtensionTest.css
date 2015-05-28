@@ -62,8 +62,6 @@
 .tex-boxlink img {
     max-width: 50px !important;
     height: auto;
-    vertical-align: middle;
-    float: left;
 }
 
 .mce-content-body .tex-vertical-line {
