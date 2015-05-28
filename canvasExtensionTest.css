@@ -7,10 +7,7 @@
     left: 20px;
     position: absolute;
 }
-.tex-rightpanel {
-    float: right;
-    background-color: blue;
-}
+
 .tex-lefttext {
     max-width: 40% !important;
 }
@@ -69,9 +66,4 @@
     max-width: 50px !important;
     height: auto;
     padding-right: 4px;
-}
-
-.mce-content-body .tex-vertical-line {
-    background-color: green;
-    width: 40px;
 }

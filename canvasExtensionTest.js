@@ -1,93 +1,37 @@
 if (window.console) {
-    console.log("We control the horizontal 9.");
-}
-
-function addFancyBox() {
-    console.log("addFancyBox()");
-    if (window.tinymce) {
-        tinymce.activeEditor.formatter.register('fancybox', {
-           inline : 'span',
-           styles : {color : '#00ff00'},
-           classes : "fancybox"
-         });
-         tinymce.activeEditor.formatter.toggle('fancybox');
-    }
-}
-
-function redLetters() {
-    console.log("redLetters()");
-    if (window.tinymce) {
-        tinymce.activeEditor.formatter.register('redletters', {
-           inline : 'span',
-           styles : {color : '#ff0000'},
-           classes : "fancybox"
-         });
-         tinymce.activeEditor.formatter.toggle('redletters');
-    }
+    console.log("TEx Canvas Editor Extensions");
 }
 
 function boxLink() {
-    console.log("boxLink()");
     setup();
     removeOthers();
     tinymce.activeEditor.formatter.toggle('boxlink-edit');
     tinymce.activeEditor.formatter.toggle('boxlink');
 }
 
-function rightPanel() {
-    console.log("rightPanel()");
-    setup();
-    tinymce.activeEditor.formatter.toggle('rightpanel');
-}
-
 function rightImage() {
-    console.log("rightImage()");
     setup();
     tinymce.activeEditor.formatter.toggle('rightimage');
 }
 function rightBlurImage() {
-    console.log("rightBlurImage()");
     setup();
     tinymce.activeEditor.formatter.toggle('rightblurimage');
 }
 
 function leftText() {
-    console.log("leftText()");
     setup();
     tinymce.activeEditor.formatter.toggle('lefttext');
 }
 function floatLeft() {
-    console.log("floatLeft()");
     setup();
     tinymce.activeEditor.formatter.toggle('floatleft');
 }
 function floatRight() {
-    console.log("floatRight()");
     setup();
     tinymce.activeEditor.formatter.toggle('floatright');
 }
 
-function verticalRegister() {
-    console.log("verticalRegister()");
-}
-function vertical() {
-    console.log("vertical()");
-    setup();
-try {
-    removeOthers();
-//    tinymce.activeEditor.formatter.toggle('vertical-edit-color');
-//    tinymce.activeEditor.formatter.toggle('vertical-edit-width');
-//    tinymce.activeEditor.formatter.toggle('vertical-edit');
-    tinymce.activeEditor.insertContent("- V E R T I C A L - L I N E -");
-    tinymce.activeEditor.formatter.toggle('vertical');
-
-} catch(e) {
-    console.log(e);
-}
-}
-
 function removeOthers() {
-    tinymce.activeEditor.formatter.remove('rightpanel');
     tinymce.activeEditor.formatter.remove('rightimage');
 }
 
@@ -99,30 +43,33 @@ function toolButton(toolDiv, title, operation) {
     newButton.onclick = operation;
 }
 
+function register(name, tag, styles, wrapper) {
+    if (!tag) {
+        tag = 'p';
+    }
+    var options = {
+        block: tag,
+        classes: name
+    }
+    if (styles) {
+        options.styles = styles;
+    }
+    if (wrapper) {
+        options.wrapper = wrapper;
+    }
+    tinymce.activeEditor.formatter.register(name, options);
+
+    return function() {
+        tinymce.activeEditor.formatter.toggle(name);
+    }
+}
+
 var texEditorRegistered = false;
 function setup() {
     if (!window.tinymce) {
         return;
     }
     if (!texEditorRegistered) {
-
-        tinymce.activeEditor.formatter.register('vertical', {
-           block : 'p',
-           classes : "tex-vertical-line"
-         });
-
-        tinymce.activeEditor.formatter.register('vertical-edit', {
-           block : 'p',
-//           styles : {"background-color": "grey", width: "20px", content : 'V R T C L'},
-           styles : {color : '#f0f0f0', width: '40px'},
-         });
-
-        tinymce.activeEditor.formatter.register('vertical-edit-color', {
-           block : 'p',
-//           styles : {"background-color": "grey", width: "20px", content : 'V R T C L'},
-           styles : {color : 'grey'},
-         });
-        tinymce.activeEditor.formatter.register('vertical-edit-width', {block : 'p', styles : {width: '40px'}});
 
         tinymce.activeEditor.formatter.register('boxlink-edit', {
            block : 'p',
@@ -133,20 +80,15 @@ function setup() {
            classes : "tex-boxlink"
          });
 
-        tinymce.activeEditor.formatter.register('rightpanel', {
-           block : 'p',
-           classes : "tex-rightpanel"
-         });
-
         tinymce.activeEditor.formatter.register('rightimage', {
            block : 'p',
            classes : "tex-rightimage"
          });
-        tinymce.activeEditor.formatter.register('rightblurimage', {
-           block : 'p',
-           classes : "tex-rightblurimage"
-         });
 
+//        tinymce.activeEditor.formatter.register('rightblurimage', {
+//           block : 'p',
+//           classes : "tex-rightblurimage"
+//         });
 
         tinymce.activeEditor.formatter.register('lefttext', {
            block: 'p',
@@ -176,26 +118,26 @@ function nearPage(name) {
     return (document.location.pathname.indexOf(name) > 0);
 }
 
-if (onPage("/edit")) {
+function addToolbar() {
     var toolDiv = document.createElement("div");
     toolDiv.style.position = "fixed";
     toolDiv.style.bottom = "0px";
     toolDiv.style.left = "180px";
     toolDiv.style.zIndex = 1000;
 
-    toolButton(toolDiv, "Setup", setup);
-    toolButton(toolDiv, "Two Panel", addFancyBox);
-    toolButton(toolDiv, "Red", redLetters);
-    toolButton(toolDiv, "Right Panel", rightPanel);
     toolButton(toolDiv, "Right Image", rightImage);
-    toolButton(toolDiv, "Right Blur Image", rightBlurImage);
-    toolButton(toolDiv, "|", vertical);
+//    toolButton(toolDiv, "Right Blur Image", rightBlurImage);
+    toolButton(toolDiv, ">Blur Image", register('tex-rightblurimage'));
     toolButton(toolDiv, "BoxLink", boxLink);
     toolButton(toolDiv, "tL", leftText);
     toolButton(toolDiv, "fL", floatLeft);
     toolButton(toolDiv, "fR", floatRight);
 
     document.body.appendChild(toolDiv);
+}
+
+if (onPage("/edit")) {
+    addToolbar();
 }
 
 //Security restrictions in the browser may prevent this
