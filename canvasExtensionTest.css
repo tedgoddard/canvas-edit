@@ -52,7 +52,9 @@
     width: 400px;
     clear: both;
     position: relative;
+    display: -webkit-flex;
     display: flex;
+    -webkit-align-items: center;
     align-items: center;
     z-index: 1000;
 }
