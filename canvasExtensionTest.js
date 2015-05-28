@@ -45,7 +45,17 @@ function rightImage() {
     setup();
     tinymce.activeEditor.formatter.toggle('rightimage');
 }
+function rightBlurImage() {
+    console.log("rightBlurImage()");
+    setup();
+    tinymce.activeEditor.formatter.toggle('rightblurimage');
+}
 
+function leftText() {
+    console.log("leftText()");
+    setup();
+    tinymce.activeEditor.formatter.toggle('lefttext');
+}
 function floatLeft() {
     console.log("floatLeft()");
     setup();
@@ -132,8 +142,16 @@ function setup() {
            block : 'p',
            classes : "tex-rightimage"
          });
+        tinymce.activeEditor.formatter.register('rightblurimage', {
+           block : 'p',
+           classes : "tex-rightblurimage"
+         });
 
 
+        tinymce.activeEditor.formatter.register('lefttext', {
+           block: 'p',
+           classes: "tex-lefttext",
+         });
         tinymce.activeEditor.formatter.register('floatleft', {
            block: 'div',
            classes: "tex-floatleft",
@@ -170,8 +188,10 @@ if (onPage("/edit")) {
     toolButton(toolDiv, "Red", redLetters);
     toolButton(toolDiv, "Right Panel", rightPanel);
     toolButton(toolDiv, "Right Image", rightImage);
+    toolButton(toolDiv, "Right Blur Image", rightBlurImage);
     toolButton(toolDiv, "|", vertical);
     toolButton(toolDiv, "BoxLink", boxLink);
+    toolButton(toolDiv, "tL", leftText);
     toolButton(toolDiv, "fL", floatLeft);
     toolButton(toolDiv, "fR", floatRight);
 

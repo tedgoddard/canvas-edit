@@ -8,10 +8,20 @@
     float: right;
     background-color: blue;
 }
+.tex-lefttext {
+    max-width: 40% !important;
+}
 
 .tex-rightimage img {
     position: absolute;
-    max-width: 40% !important;
+    max-width: 60% !important;
+    right: 20px;
+    top: 20px;
+}
+
+.tex-rightblurimage img {
+    position: absolute;
+    max-width: 60% !important;
     right: 20px;
     top: 20px;
     -webkit-filter: blur(2px);
