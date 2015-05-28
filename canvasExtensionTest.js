@@ -111,7 +111,8 @@ function setup() {
 }
 
 function onPage(name) {
-    return (document.location.pathname.indexOf(name) + name.length == document.location.pathname.length);
+    var pathName = document.location.pathname;
+    return (pathName.substr(pathName.length - name.length) == name);
 }
 
 function nearPage(name) {
