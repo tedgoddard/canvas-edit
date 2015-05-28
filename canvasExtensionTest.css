@@ -1,5 +1,7 @@
 .tex-floatright {
-    float: right;
+    position: absolute;
+    top: 80px;
+    right: 80px;
 }
 .tex-floatleft {
     float: left;
@@ -15,14 +17,16 @@
 .tex-rightimage img {
     position: absolute;
     max-width: 60% !important;
-    right: 20px;
+    height: auto !important;
+    right: 80px;
     top: 20px;
 }
 
 .tex-rightblurimage img {
     position: absolute;
     max-width: 60% !important;
-    right: 20px;
+    height: auto !important;
+    right: 80px;
     top: 20px;
     -webkit-filter: blur(2px);
 }
