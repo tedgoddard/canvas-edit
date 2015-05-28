@@ -137,9 +137,11 @@ function addToolbar() {
 }
 
 if (onPage("/edit")) {
+console.log("adding toolbar");
     addToolbar();
 }
 
+console.log("TEx Editor Extensions loaded." + onPage("/edit"));
 //Security restrictions in the browser may prevent this
 //if (window.tinyMCE && nearPage("/custom-editor-test")) {
 //    var oldInit = tinyMCE.init;
