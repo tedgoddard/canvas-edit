@@ -4,7 +4,8 @@
     right: 80px;
 }
 .tex-floatleft {
-    float: left;
+    left: 80px;
+    position: absolute;
 }
 .tex-rightpanel {
     float: right;
@@ -12,7 +13,6 @@
 }
 .tex-lefttext {
     max-width: 40% !important;
-    position: absolute;
 }
 
 .tex-rightimage img {
