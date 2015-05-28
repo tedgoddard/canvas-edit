@@ -43,6 +43,7 @@ function toolButton(toolDiv, title, operation) {
     newButton.onclick = operation;
 }
 
+var setups = [];
 function register(name, tag, styles, wrapper) {
     if (!tag) {
         tag = 'p';
@@ -57,7 +58,9 @@ function register(name, tag, styles, wrapper) {
     if (wrapper) {
         options.wrapper = wrapper;
     }
-    tinymce.activeEditor.formatter.register(name, options);
+    setups.push(function() {
+        tinymce.activeEditor.formatter.register(name, options);
+    });
 
     return function() {
         tinymce.activeEditor.formatter.toggle(name);
@@ -70,6 +73,10 @@ function setup() {
         return;
     }
     if (!texEditorRegistered) {
+
+        for (i = 0; i < setups.length; i++) {
+            setups[i]();
+        }
 
         tinymce.activeEditor.formatter.register('boxlink-edit', {
            block : 'p',
