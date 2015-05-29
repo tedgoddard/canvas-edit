@@ -5,7 +5,7 @@ if (window.console) {
 function boxLink() {
 try {
     setup();
-    removeOthers();
+//    removeOthers();
     tinymce.activeEditor.formatter.toggle('boxlink-edit');
     tinymce.activeEditor.formatter.toggle('boxlink');
 } catch (e) {
