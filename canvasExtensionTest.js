@@ -59,6 +59,7 @@ function register(name, tag, styles, wrapper) {
         options.wrapper = wrapper;
     }
     setups.push(function() {
+        console.log("tinymce register " + name + " " + JSON.stringify(options));
         tinymce.activeEditor.formatter.register(name, options);
     });
 
