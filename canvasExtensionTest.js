@@ -64,6 +64,7 @@ function register(name, tag, styles, wrapper) {
     });
 
     return function() {
+        setup();
         tinymce.activeEditor.formatter.toggle(name);
     }
 }
