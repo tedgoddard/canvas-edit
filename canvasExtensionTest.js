@@ -123,9 +123,9 @@ function addToolbar() {
     toolButton(toolDiv, ">Image", register('tex-rightimage'));
     toolButton(toolDiv, ">Blur Image", register('tex-rightblurimage'));
     toolButton(toolDiv, "Box Link", register('tex-boxlink'));
-    toolButton(toolDiv, "tL", register('tex-leftText'));
-    toolButton(toolDiv, "fL", register('tex-floatLeft', 'div', true));
-    toolButton(toolDiv, "fR", register('tex-floatRight', 'div', true));
+    toolButton(toolDiv, "tL", register('tex-lefttext'));
+    toolButton(toolDiv, "fL", register('tex-floatleft', 'div', true));
+    toolButton(toolDiv, "fR", register('tex-floatright', 'div', true));
 //    toolButton(toolDiv, "tL", leftText);
 //    toolButton(toolDiv, "fL", floatLeft);
 //    toolButton(toolDiv, "fR", floatRight);
