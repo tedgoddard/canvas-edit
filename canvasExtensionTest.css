@@ -41,7 +41,13 @@ body.mce-content-body .tex-rightimage img {
 body:not(.mce-content-body) .tex-rightblurimage img {
     max-width: 60% !important;
     height: auto !important;
+    position: absolute;
+    right: -8px;
     top: -8px;
+}
+
+body.mce-content-body .tex-rightblurimage img {
+    float: right;
 }
 
 .tex-vertical-line {
