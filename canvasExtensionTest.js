@@ -1,5 +1,5 @@
 if (window.console) {
-    console.log("TEx Canvas Editor Extensions");
+    console.log("TEx Canvas Editor Extensions 1");
 }
 
 function boxLink() {
@@ -9,14 +9,14 @@ function boxLink() {
     tinymce.activeEditor.formatter.toggle('boxlink');
 }
 
-function rightImage() {
-    setup();
-    tinymce.activeEditor.formatter.toggle('rightimage');
-}
-function rightBlurImage() {
-    setup();
-    tinymce.activeEditor.formatter.toggle('rightblurimage');
-}
+//function rightImage() {
+//    setup();
+//    tinymce.activeEditor.formatter.toggle('rightimage');
+//}
+//function rightBlurImage() {
+//    setup();
+//    tinymce.activeEditor.formatter.toggle('rightblurimage');
+//}
 
 function leftText() {
     setup();
@@ -89,10 +89,10 @@ function setup() {
            classes : "tex-boxlink"
          });
 
-        tinymce.activeEditor.formatter.register('rightimage', {
-           block : 'p',
-           classes : "tex-rightimage"
-         });
+//        tinymce.activeEditor.formatter.register('rightimage', {
+//           block : 'p',
+//           classes : "tex-rightimage"
+//         });
 
 //        tinymce.activeEditor.formatter.register('rightblurimage', {
 //           block : 'p',
@@ -135,8 +135,9 @@ function addToolbar() {
     toolDiv.style.left = "180px";
     toolDiv.style.zIndex = 1000;
 
-    toolButton(toolDiv, "Right Image", rightImage);
+//    toolButton(toolDiv, "Right Image", rightImage);
 //    toolButton(toolDiv, "Right Blur Image", rightBlurImage);
+    toolButton(toolDiv, ">Image", register('tex-rightimage'));
     toolButton(toolDiv, ">Blur Image", register('tex-rightblurimage'));
     toolButton(toolDiv, "BoxLink", boxLink);
     toolButton(toolDiv, "tL", leftText);
@@ -152,8 +153,8 @@ console.log("adding toolbar");
 }
 
 console.log("TEx Editor Extensions loaded." + onPage("/edit"));
-//Security restrictions in the browser may prevent this
-//if (window.tinyMCE && nearPage("/custom-editor-test")) {
+
+if (window.tinyMCE && nearPage("/editor-extension-test")) {
 //    var oldInit = tinyMCE.init;
 //    tinyMCE.init = function(options) {
 //        console.log("tinyMCE override redux");
@@ -168,4 +169,13 @@ console.log("TEx Editor Extensions loaded." + onPage("/edit"));
 //        console.log(options);
 //        oldInit(options);
 //    }
-//}
+
+    var oldInit = tinyMCE.init;
+    tinyMCE.init = function() {
+      console.log("MonkeyPatch sees " + arguments);
+      oldInit.apply(this, arguments);
+    }
+
+
+}
+
