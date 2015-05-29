@@ -2,16 +2,16 @@ if (window.console) {
     console.log("TEx Canvas Editor Extensions 2");
 }
 
-function boxLink() {
-try {
-    setup();
-//    removeOthers();
-    tinymce.activeEditor.formatter.toggle('boxlink-edit');
-    tinymce.activeEditor.formatter.toggle('boxlink');
-} catch (e) {
-console.log(e);
-}
-}
+//function boxLink() {
+//try {
+//    setup();
+////    removeOthers();
+//    tinymce.activeEditor.formatter.toggle('boxlink-edit');
+//    tinymce.activeEditor.formatter.toggle('boxlink');
+//} catch (e) {
+//console.log(e);
+//}
+//}
 
 //function rightImage() {
 //    setup();
@@ -84,14 +84,14 @@ function setup() {
             setups[i]();
         }
 
-        tinymce.activeEditor.formatter.register('boxlink-edit', {
-           block : 'p',
-           styles : {borderStyle: 'solid'}
-         });
-        tinymce.activeEditor.formatter.register('boxlink', {
-           block : 'p',
-           classes : "tex-boxlink"
-         });
+//        tinymce.activeEditor.formatter.register('boxlink-edit', {
+//           block : 'p',
+//           styles : {borderStyle: 'solid'}
+//         });
+//        tinymce.activeEditor.formatter.register('boxlink', {
+//           block : 'p',
+//           classes : "tex-boxlink"
+//         });
 
 //        tinymce.activeEditor.formatter.register('rightimage', {
 //           block : 'p',
@@ -143,7 +143,8 @@ function addToolbar() {
 //    toolButton(toolDiv, "Right Blur Image", rightBlurImage);
     toolButton(toolDiv, ">Image", register('tex-rightimage'));
     toolButton(toolDiv, ">Blur Image", register('tex-rightblurimage'));
-    toolButton(toolDiv, "BoxLink", boxLink);
+    toolButton(toolDiv, "Box Link", register('tex-boxlink'));
+//    toolButton(toolDiv, "BoxLink", boxLink);
     toolButton(toolDiv, "tL", leftText);
     toolButton(toolDiv, "fL", floatLeft);
     toolButton(toolDiv, "fR", floatRight);
