@@ -82,7 +82,7 @@ function addToolbar() {
     toolButton(toolDiv, "Left Text", register('tex-lefttext'));
     toolButton(toolDiv, "Float Left", register('tex-floatleft', 'div', true));
     toolButton(toolDiv, "Float Right", register('tex-floatright', 'div', true));
-    toolButton(toolDiv, "Link Page", template("<div class='tex-lefttext'>Column One</div><p class='tex-rightblurimage'><img src='" + texPanelImage + "'><div class='tex-floatright'><p class='tex-boxlink'>Link One</p><p class='tex-boxlink'>Link Two</p></div>"));
+    toolButton(toolDiv, "Link Page", template("<div class='tex-lefttext'>Column One</div><p class='tex-rightblurimage'><img src='" + texPanelImage + "'></p><div class='tex-floatright'><p class='tex-boxlink'>Link One</p><p class='tex-boxlink'>Link Two</p></div>"));
 
     document.body.appendChild(toolDiv);
 }
