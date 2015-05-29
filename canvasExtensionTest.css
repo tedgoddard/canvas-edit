@@ -88,6 +88,8 @@ body.mce-content-body .tex-rightblurimage img {
 .tex-boxlink a {
   color:inherit;
   text-decoration: none;
+  padding: 40px;
+  margin: -40px;
 }
 
 .tex-boxlink img {
