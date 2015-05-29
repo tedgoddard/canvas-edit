@@ -12,7 +12,7 @@
     max-width: 40% !important;
 }
 
-:not(.mce-content-body) .tex-rightimage img {
+body:not(.mce-content-body) .tex-rightimage img {
     position: absolute;
     max-width: 60% !important;
     height: auto !important;
