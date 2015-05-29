@@ -78,7 +78,7 @@ function addToolbar() {
     toolButton(toolDiv, "Left Text", register('tex-lefttext'));
     toolButton(toolDiv, "Float Left", register('tex-floatleft', 'div', true));
     toolButton(toolDiv, "Float Right", register('tex-floatright', 'div', true));
-    toolButton(toolDiv, "Link Template", template("<div class='tex-lefttext'>Column One</div><p class='tex-rightimage'><div style='background: lightgrey; width: 400px; height: 800px;'></div></p><div class='tex-floatright'><p class='tex-boxlink'>Link One</p><p class='tex-boxlink'>Link Two</p></div>"));
+    toolButton(toolDiv, "Link Template", template("<div class='tex-lefttext'>Column One</div><p class='tex-rightimage'><img src='https://tedgoddard.github.io/canvas-edit/tex-panel-small.png'></p><div class='tex-floatright'><p class='tex-boxlink'>Link One</p><p class='tex-boxlink'>Link Two</p></div>"));
 
     document.body.appendChild(toolDiv);
 }
