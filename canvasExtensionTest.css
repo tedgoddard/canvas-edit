@@ -24,7 +24,7 @@
     -webkit-filter: blur(4px);
 }
 
-:not(.mce-content-body) .tex-rightblurimage img {
+body:not(.mce-content-body) .tex-rightblurimage img {
     position: absolute;
     max-width: 60% !important;
     height: auto !important;
