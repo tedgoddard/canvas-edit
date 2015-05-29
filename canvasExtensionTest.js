@@ -78,7 +78,7 @@ function addToolbar() {
     toolButton(toolDiv, "Left Text", register('tex-lefttext'));
     toolButton(toolDiv, "Float Left", register('tex-floatleft', 'div', true));
     toolButton(toolDiv, "Float Right", register('tex-floatright', 'div', true));
-    toolButton(toolDiv, "Two Column", template("<div class='tex-floatleft'>Column One</div><div class='tex-floatright'>Column Two</div>"));
+    toolButton(toolDiv, "Two Column", template("<div class='tex-lefttext'>Column One</div><p class='tex-rightblurimage'><img src='https://utx.instructure.com/images/canvas/header_canvas_logo.png'><div class='tex-floatright'><p class='tex-boxlink'>Link One</p><p class='tex-boxlink'>Link Two</p></div>"));
 
     document.body.appendChild(toolDiv);
 }
