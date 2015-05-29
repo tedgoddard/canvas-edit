@@ -1,7 +1,10 @@
-.tex-floatright {
+body:not(.mce-content-body) .tex-floatright {
     position: absolute;
-    top: 80px;
     right: 80px;
+}
+
+.tex-floatright {
+    top: 80px;
 }
 .tex-floatleft {
     left: 20px;
