@@ -19,7 +19,7 @@ body.mce-content-body .tex-floatright {
 }
 
 .tex-lefttext {
-    max-width: 40% !important;
+    max-width: 43.7% !important;
 }
 
 .tex-rightimage img {
@@ -28,7 +28,7 @@ body.mce-content-body .tex-floatright {
 }
 
 body:not(.mce-content-body) .tex-rightimage img {
-    max-width: 60% !important;
+    max-width: 56.3% !important;
     height: auto !important;
     position: absolute;
     right: -8px;
@@ -44,7 +44,7 @@ body.mce-content-body .tex-rightimage img {
 }
 
 body:not(.mce-content-body) .tex-rightblurimage img {
-    max-width: 60% !important;
+    max-width: 56.3% !important;
     height: auto !important;
     position: absolute;
     right: -8px;
