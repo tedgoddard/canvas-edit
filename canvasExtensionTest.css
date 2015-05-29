@@ -12,7 +12,7 @@
     max-width: 40% !important;
 }
 
-.tex-rightimage img {
+:not(.mce-content-body) .tex-rightimage img {
     position: absolute;
     max-width: 60% !important;
     height: auto !important;
@@ -20,7 +20,7 @@
     top: 0px;
 }
 
-.tex-rightblurimage img {
+:not(.mce-content-body) .tex-rightblurimage img {
     position: absolute;
     max-width: 60% !important;
     height: auto !important;
