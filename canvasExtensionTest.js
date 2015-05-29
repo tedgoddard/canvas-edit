@@ -36,17 +36,22 @@ function register(name, tag, wrapper, styles) {
     }
 }
 
+function template(text) {
+    return function() {
+        setup();
+        tinyMCE.activeEditor.insertContent(text);
+    }
+}
+
 var texEditorRegistered = false;
 function setup() {
     if (!window.tinymce) {
         return;
     }
     if (!texEditorRegistered) {
-
         for (i = 0; i < setups.length; i++) {
             setups[i]();
         }
-
         texEditorRegistered = true;
     }
 }
@@ -67,12 +72,13 @@ function addToolbar() {
     toolDiv.style.left = "180px";
     toolDiv.style.zIndex = 1000;
 
-    toolButton(toolDiv, ">Image", register('tex-rightimage'));
-    toolButton(toolDiv, ">Blur Image", register('tex-rightblurimage'));
+    toolButton(toolDiv, "Right Image", register('tex-rightimage'));
+    toolButton(toolDiv, "Right Blur Image", register('tex-rightblurimage'));
     toolButton(toolDiv, "Box Link", register('tex-boxlink'));
-    toolButton(toolDiv, "tL", register('tex-lefttext'));
-    toolButton(toolDiv, "fL", register('tex-floatleft', 'div', true));
-    toolButton(toolDiv, "fR", register('tex-floatright', 'div', true));
+    toolButton(toolDiv, "Left Text", register('tex-lefttext'));
+    toolButton(toolDiv, "Float Left", register('tex-floatleft', 'div', true));
+    toolButton(toolDiv, "Float Right", register('tex-floatright', 'div', true));
+    toolButton(toolDiv, "Two Column", template("<div class='tex-floatleft'>Column One</div><div class='tex-floatright'>Column Two</div>"));
 
     document.body.appendChild(toolDiv);
 }
