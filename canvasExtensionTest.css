@@ -25,12 +25,16 @@ body.mce-content-body .tex-floatright {
 body:not(.mce-content-body) .tex-rightimage img {
     max-width: 60% !important;
     height: auto !important;
+    position: absolute;
+    right: -8px;
     top: 0px;
 }
 
+body.mce-content-body .tex-rightimage img {
+    float: right;
+}
+
 .tex-rightblurimage img {
-    position: absolute;
-    right: -8px;
     -webkit-filter: blur(4px);
 }
 
