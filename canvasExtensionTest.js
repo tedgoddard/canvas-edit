@@ -89,7 +89,7 @@ if (onPage("/edit")) {
 
 console.log("TEx Editor Extensions loaded." + onPage("/edit"));
 
-if (window.tinyMCE && nearPage("/editor-extension-test")) {
+if (window.tinyMCE && onPage("/edit")) {
     var oldInit = tinyMCE.init;
     tinyMCE.init = function() {
       console.log("MonkeyPatch tinyMCE arguments " + JSON.stringify(arguments[0]));
