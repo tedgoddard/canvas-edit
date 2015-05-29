@@ -172,7 +172,7 @@ if (window.tinyMCE && nearPage("/editor-extension-test")) {
 
     var oldInit = tinyMCE.init;
     tinyMCE.init = function() {
-      console.log("MonkeyPatch sees " + arguments);
+      console.log("MonkeyPatch sees " + JSON.stringify(arguments[0]) + " " + JSON.stringify(arguments[1]));
       oldInit.apply(this, arguments);
     }
 
