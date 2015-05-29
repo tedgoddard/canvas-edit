@@ -96,10 +96,8 @@ if (window.tinyMCE && nearPage("/editor-extension-test")) {
       arguments[0].content_css = ["/stylesheets_compiled/legacy_normal_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor.css", "https://tedgoddard.github.io/canvas-edit/canvasExtensionTest.css"];
       arguments[0].external_plugins["visualblocks"] = "https://tedgoddard.github.io/canvas-edit/visualblocks/plugin.min.js";
       arguments[0].toolbar[1] += ",visualblocks";
-//      arguments[0].paste_data_images = true;
       oldInit.apply(this, arguments);
     }
-
 
 }
 
