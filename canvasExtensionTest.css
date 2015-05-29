@@ -29,6 +29,7 @@ body.mce-content-body .tex-floatright {
 
 body:not(.mce-content-body) .tex-rightimage img {
     max-width: 580px !important;
+    clip: rect(auto, auto, auto, 26px);
     height: auto !important;
     position: absolute;
     right: -8px;
@@ -41,11 +42,11 @@ body.mce-content-body .tex-rightimage img {
 
 .tex-rightblurimage img {
     -webkit-filter: blur(4px);
-    clip: rect(auto, auto, auto, 26px);
 }
 
 body:not(.mce-content-body) .tex-rightblurimage img {
     max-width: 580px !important;
+    clip: rect(auto, auto, auto, 26px);
     height: auto !important;
     position: absolute;
     right: -8px;
@@ -74,7 +75,7 @@ body.mce-content-body .tex-rightblurimage img {
     margin: 20px;
     padding: 20px;
     float: right;
-    width: 400px;
+    width: 360px;
     clear: both;
     position: relative;
     display: -webkit-flex;
