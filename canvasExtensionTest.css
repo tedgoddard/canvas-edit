@@ -20,13 +20,16 @@
     top: 0px;
 }
 
+.tex-rightblurimage img {
+    -webkit-filter: blur(4px);
+}
+
 :not(.mce-content-body) .tex-rightblurimage img {
     position: absolute;
     max-width: 60% !important;
     height: auto !important;
     right: -8px;
     top: -8px;
-    -webkit-filter: blur(4px);
 }
 
 .tex-vertical-line {

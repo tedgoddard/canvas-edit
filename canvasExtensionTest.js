@@ -22,22 +22,22 @@ if (window.console) {
 //    tinymce.activeEditor.formatter.toggle('rightblurimage');
 //}
 
-function leftText() {
-    setup();
-    tinymce.activeEditor.formatter.toggle('lefttext');
-}
-function floatLeft() {
-    setup();
-    tinymce.activeEditor.formatter.toggle('floatleft');
-}
-function floatRight() {
-    setup();
-    tinymce.activeEditor.formatter.toggle('floatright');
-}
+//function leftText() {
+//    setup();
+//    tinymce.activeEditor.formatter.toggle('lefttext');
+//}
+//function floatLeft() {
+//    setup();
+//    tinymce.activeEditor.formatter.toggle('floatleft');
+//}
+//function floatRight() {
+//    setup();
+//    tinymce.activeEditor.formatter.toggle('floatright');
+//}
 
-function removeOthers() {
-    tinymce.activeEditor.formatter.remove('rightimage');
-}
+//function removeOthers() {
+//    tinymce.activeEditor.formatter.remove('rightimage');
+//}
 
 function toolButton(toolDiv, title, operation) {
     var newButton = document.createElement("button");
@@ -48,7 +48,7 @@ function toolButton(toolDiv, title, operation) {
 }
 
 var setups = [];
-function register(name, tag, styles, wrapper) {
+function register(name, tag, wrapper, styles) {
     if (!tag) {
         tag = 'p';
     }
@@ -84,40 +84,21 @@ function setup() {
             setups[i]();
         }
 
-//        tinymce.activeEditor.formatter.register('boxlink-edit', {
-//           block : 'p',
-//           styles : {borderStyle: 'solid'}
+//        tinymce.activeEditor.formatter.register('lefttext', {
+//           block: 'p',
+//           classes: "tex-lefttext",
 //         });
-//        tinymce.activeEditor.formatter.register('boxlink', {
-//           block : 'p',
-//           classes : "tex-boxlink"
+//        tinymce.activeEditor.formatter.register('floatleft', {
+//           block: 'div',
+//           classes: "tex-floatleft",
+//           wrapper: true
 //         });
-
-//        tinymce.activeEditor.formatter.register('rightimage', {
-//           block : 'p',
-//           classes : "tex-rightimage"
+//
+//        tinymce.activeEditor.formatter.register('floatright', {
+//           block: 'div',
+//           classes: "tex-floatright",
+//           wrapper: true
 //         });
-
-//        tinymce.activeEditor.formatter.register('rightblurimage', {
-//           block : 'p',
-//           classes : "tex-rightblurimage"
-//         });
-
-        tinymce.activeEditor.formatter.register('lefttext', {
-           block: 'p',
-           classes: "tex-lefttext",
-         });
-        tinymce.activeEditor.formatter.register('floatleft', {
-           block: 'div',
-           classes: "tex-floatleft",
-           wrapper: true
-         });
-
-        tinymce.activeEditor.formatter.register('floatright', {
-           block: 'div',
-           classes: "tex-floatright",
-           wrapper: true
-         });
 
         texEditorRegistered = true;
     }
@@ -139,47 +120,30 @@ function addToolbar() {
     toolDiv.style.left = "180px";
     toolDiv.style.zIndex = 1000;
 
-//    toolButton(toolDiv, "Right Image", rightImage);
-//    toolButton(toolDiv, "Right Blur Image", rightBlurImage);
     toolButton(toolDiv, ">Image", register('tex-rightimage'));
     toolButton(toolDiv, ">Blur Image", register('tex-rightblurimage'));
     toolButton(toolDiv, "Box Link", register('tex-boxlink'));
-//    toolButton(toolDiv, "BoxLink", boxLink);
-    toolButton(toolDiv, "tL", leftText);
-    toolButton(toolDiv, "fL", floatLeft);
-    toolButton(toolDiv, "fR", floatRight);
+    toolButton(toolDiv, "tL", register('tex-leftText'));
+    toolButton(toolDiv, "fL", register('tex-floatLeft', 'div', true));
+    toolButton(toolDiv, "fR", register('tex-floatRight', 'div', true));
+//    toolButton(toolDiv, "tL", leftText);
+//    toolButton(toolDiv, "fL", floatLeft);
+//    toolButton(toolDiv, "fR", floatRight);
 
     document.body.appendChild(toolDiv);
 }
 
 if (onPage("/edit")) {
-console.log("adding toolbar");
     addToolbar();
 }
 
 console.log("TEx Editor Extensions loaded." + onPage("/edit"));
 
 if (window.tinyMCE && nearPage("/editor-extension-test")) {
-//    var oldInit = tinyMCE.init;
-//    tinyMCE.init = function(options) {
-//        console.log("tinyMCE override redux");
-//        var contentCSS = ["https://tedgoddard.github.io/canvas-edit/canvasExtensionTest.css"];
-//        var oldContentCSS = options["content_css"];
-//        if (typeof oldContentCSS == 'string') {
-//            contentCSS.push(oldContentCSS);
-//        } else {
-//            contentCSS = contentCSS.concat(oldContentCSS);
-//        }
-//        options["content_css"] = contentCSS;
-//        console.log(options);
-//        oldInit(options);
-//    }
-
     var oldInit = tinyMCE.init;
     tinyMCE.init = function() {
-      console.log("MonkeyPatch sees " + JSON.stringify(arguments[0]) + " " + JSON.stringify(arguments[1]));
+      console.log("MonkeyPatch tinyMCE arguments " + JSON.stringify(arguments[0]));
       arguments[0].content_css = ["/stylesheets_compiled/legacy_normal_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor.css", "https://tedgoddard.github.io/canvas-edit/canvasExtensionTest.css"];
-//      arguments[0].plugins += ",visualblocks";
       arguments[0].external_plugins["visualblocks"] = "https://tedgoddard.github.io/canvas-edit/visualblocks/plugin.min.js";
       arguments[0].toolbar[1] += ",visualblocks";
       oldInit.apply(this, arguments);
