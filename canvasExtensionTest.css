@@ -41,6 +41,7 @@ body.mce-content-body .tex-rightimage img {
 
 .tex-rightblurimage img {
     -webkit-filter: blur(4px);
+    clip: rect(auto, auto, auto, 4px);
 }
 
 body:not(.mce-content-body) .tex-rightblurimage img {
