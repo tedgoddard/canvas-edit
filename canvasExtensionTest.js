@@ -3,10 +3,14 @@ if (window.console) {
 }
 
 function boxLink() {
+try {
     setup();
     removeOthers();
     tinymce.activeEditor.formatter.toggle('boxlink-edit');
     tinymce.activeEditor.formatter.toggle('boxlink');
+} catch (e) {
+console.log(e);
+}
 }
 
 //function rightImage() {
@@ -174,6 +178,7 @@ if (window.tinyMCE && nearPage("/editor-extension-test")) {
     tinyMCE.init = function() {
       console.log("MonkeyPatch sees " + JSON.stringify(arguments[0]) + " " + JSON.stringify(arguments[1]));
       arguments[0].content_css = ["/stylesheets_compiled/legacy_normal_contrast/bundles/what_gets_loaded_inside_the_tinymce_editor.css", "https://tedgoddard.github.io/canvas-edit/canvasExtensionTest.css"];
+      arguments[0].plugins += ",visualblocks";
       oldInit.apply(this, arguments);
     }
 
