@@ -1,43 +1,6 @@
 if (window.console) {
-    console.log("TEx Canvas Editor Extensions 2");
+    console.log("TEx Canvas Editor Extensions");
 }
-
-//function boxLink() {
-//try {
-//    setup();
-////    removeOthers();
-//    tinymce.activeEditor.formatter.toggle('boxlink-edit');
-//    tinymce.activeEditor.formatter.toggle('boxlink');
-//} catch (e) {
-//console.log(e);
-//}
-//}
-
-//function rightImage() {
-//    setup();
-//    tinymce.activeEditor.formatter.toggle('rightimage');
-//}
-//function rightBlurImage() {
-//    setup();
-//    tinymce.activeEditor.formatter.toggle('rightblurimage');
-//}
-
-//function leftText() {
-//    setup();
-//    tinymce.activeEditor.formatter.toggle('lefttext');
-//}
-//function floatLeft() {
-//    setup();
-//    tinymce.activeEditor.formatter.toggle('floatleft');
-//}
-//function floatRight() {
-//    setup();
-//    tinymce.activeEditor.formatter.toggle('floatright');
-//}
-
-//function removeOthers() {
-//    tinymce.activeEditor.formatter.remove('rightimage');
-//}
 
 function toolButton(toolDiv, title, operation) {
     var newButton = document.createElement("button");
@@ -63,7 +26,7 @@ function register(name, tag, wrapper, styles) {
         options.wrapper = wrapper;
     }
     setups.push(function() {
-        console.log("tinymce register " + name + " " + JSON.stringify(options));
+        console.log("tinymce.register " + name + " " + JSON.stringify(options));
         tinymce.activeEditor.formatter.register(name, options);
     });
 
@@ -83,22 +46,6 @@ function setup() {
         for (i = 0; i < setups.length; i++) {
             setups[i]();
         }
-
-//        tinymce.activeEditor.formatter.register('lefttext', {
-//           block: 'p',
-//           classes: "tex-lefttext",
-//         });
-//        tinymce.activeEditor.formatter.register('floatleft', {
-//           block: 'div',
-//           classes: "tex-floatleft",
-//           wrapper: true
-//         });
-//
-//        tinymce.activeEditor.formatter.register('floatright', {
-//           block: 'div',
-//           classes: "tex-floatright",
-//           wrapper: true
-//         });
 
         texEditorRegistered = true;
     }
@@ -126,9 +73,6 @@ function addToolbar() {
     toolButton(toolDiv, "tL", register('tex-lefttext'));
     toolButton(toolDiv, "fL", register('tex-floatleft', 'div', true));
     toolButton(toolDiv, "fR", register('tex-floatright', 'div', true));
-//    toolButton(toolDiv, "tL", leftText);
-//    toolButton(toolDiv, "fL", floatLeft);
-//    toolButton(toolDiv, "fR", floatRight);
 
     document.body.appendChild(toolDiv);
 }

@@ -12,23 +12,26 @@
     max-width: 40% !important;
 }
 
-body:not(.mce-content-body) .tex-rightimage img {
+.tex-rightimage img {
     position: absolute;
+    right: 0px;
+}
+
+body:not(.mce-content-body) .tex-rightimage img {
     max-width: 60% !important;
     height: auto !important;
-    right: 0px;
     top: 0px;
 }
 
 .tex-rightblurimage img {
+    position: absolute;
+    right: -8px;
     -webkit-filter: blur(4px);
 }
 
 body:not(.mce-content-body) .tex-rightblurimage img {
-    position: absolute;
     max-width: 60% !important;
     height: auto !important;
-    right: -8px;
     top: -8px;
 }
 
