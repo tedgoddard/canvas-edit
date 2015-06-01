@@ -35,7 +35,7 @@ TEx.register = function(name, tag, wrapper, styles) {
     if (wrapper) {
         options.wrapper = wrapper;
     }
-    setups.push(function() {
+    TEx.setups.push(function() {
         console.log("tinymce.register " + name + " " + JSON.stringify(options));
         tinymce.activeEditor.formatter.register(name, options);
     });
