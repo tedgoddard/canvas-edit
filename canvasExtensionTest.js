@@ -6,11 +6,13 @@
   Copyright (c) 2015 Robots and Pencils Inc. All rights reserved.
 */
 
+var TEx = TEx || {};
+
 if (window.console) {
     console.log("TEx Canvas Editor Extensions");
 }
 
-function toolButton(toolDiv, title, operation) {
+TEx.toolButton = function(toolDiv, title, operation) {
     var newButton = document.createElement("button");
     toolDiv.appendChild(newButton);
     var buttonTitle = document.createTextNode(title);
@@ -18,8 +20,8 @@ function toolButton(toolDiv, title, operation) {
     newButton.onclick = operation;
 }
 
-var setups = [];
-function register(name, tag, wrapper, styles) {
+TEx.setups = [];
+TEx.register = function(name, tag, wrapper, styles) {
     if (!tag) {
         tag = 'p';
     }
@@ -44,15 +46,15 @@ function register(name, tag, wrapper, styles) {
     }
 }
 
-function template(text) {
+TEx.template = function(text) {
     return function() {
         setup();
         tinyMCE.activeEditor.insertContent(text);
     }
 }
 
-var texEditorRegistered = false;
-function setup() {
+TEx.texEditorRegistered = false;
+TEx.setup = function() {
     if (!window.tinymce) {
         return;
     }
@@ -64,16 +66,16 @@ function setup() {
     }
 }
 
-function onPage(name) {
+TEx.onPage = function(name) {
     var pathName = document.location.pathname;
     return (pathName.substr(pathName.length - name.length) == name);
 }
 
-function nearPage(name) {
+TEx.nearPage = function(name) {
     return (document.location.pathname.indexOf(name) > 0);
 }
 
-function addToolbar() {
+TEx.addToolbar = function() {
     var toolDiv = document.createElement("div");
     toolDiv.style.position = "fixed";
     toolDiv.style.bottom = "0px";
@@ -91,13 +93,8 @@ function addToolbar() {
     document.body.appendChild(toolDiv);
 }
 
-if (onPage("/edit")) {
+if (window.tinyMCE && TEx.onPage("/edit")) {
     addToolbar();
-}
-
-console.log("TEx Editor Extensions loaded." + onPage("/edit"));
-
-if (window.tinyMCE && onPage("/edit")) {
     var oldInit = tinyMCE.init;
     tinyMCE.init = function() {
       console.log("MonkeyPatch tinyMCE arguments " + JSON.stringify(arguments[0]));
@@ -108,4 +105,3 @@ if (window.tinyMCE && onPage("/edit")) {
     }
 
 }
-
