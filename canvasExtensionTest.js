@@ -82,13 +82,13 @@ TEx.addToolbar = function() {
     toolDiv.style.left = "180px";
     toolDiv.style.zIndex = 1000;
 
-    TEx.toolButton(toolDiv, "Right Image", register('tex-rightimage'));
-    TEx.toolButton(toolDiv, "Right Blur Image", register('tex-rightblurimage'));
-    TEx.toolButton(toolDiv, "Box Link", register('tex-boxlink'));
-    TEx.toolButton(toolDiv, "Left Text", register('tex-lefttext'));
-    TEx.toolButton(toolDiv, "Float Left", register('tex-floatleft', 'div', true));
-    TEx.toolButton(toolDiv, "Float Right", register('tex-floatright', 'div', true));
-    TEx.toolButton(toolDiv, "Link Template", template("<div class='tex-lefttext'>Column One</div><p class='tex-rightimage'><img src='https://tedgoddard.github.io/canvas-edit/tex-panel-small.png'></p><div class='tex-floatright'><p class='tex-boxlink'>Link One</p><p class='tex-boxlink'>Link Two</p></div>"));
+    TEx.toolButton(toolDiv, "Right Image", TEx.register('tex-rightimage'));
+    TEx.toolButton(toolDiv, "Right Blur Image", TEx.register('tex-rightblurimage'));
+    TEx.toolButton(toolDiv, "Box Link", TEx.register('tex-boxlink'));
+    TEx.toolButton(toolDiv, "Left Text", TEx.register('tex-lefttext'));
+    TEx.toolButton(toolDiv, "Float Left", TEx.register('tex-floatleft', 'div', true));
+    TEx.toolButton(toolDiv, "Float Right", TEx.register('tex-floatright', 'div', true));
+    TEx.toolButton(toolDiv, "Link Template", TEx.template("<div class='tex-lefttext'>Column One</div><p class='tex-rightimage'><img src='https://tedgoddard.github.io/canvas-edit/tex-panel-small.png'></p><div class='tex-floatright'><p class='tex-boxlink'>Link One</p><p class='tex-boxlink'>Link Two</p></div>"));
 
     document.body.appendChild(toolDiv);
 }
