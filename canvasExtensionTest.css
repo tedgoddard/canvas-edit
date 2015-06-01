@@ -102,6 +102,7 @@ body.mce-content-body .tex-rightblurimage img {
 
 .tex-boxlink img {
     max-width: 50px !important;
+    min-width: 50px;
     height: auto;
     padding-right: 4px;
 }
