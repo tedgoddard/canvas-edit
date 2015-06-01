@@ -1,3 +1,11 @@
+/*
+  canvasExtension.js
+  TExMobile
+
+  Created by Ted Goddard on 2015-01-14.
+  Copyright (c) 2015 Robots and Pencils Inc. All rights reserved.
+*/
+
 if (window.console) {
     console.log("TEx Canvas Editor Extensions");
 }

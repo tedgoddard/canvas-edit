@@ -1,3 +1,11 @@
+/*
+  canvasStyle.css
+  TExMobile
+
+  Created by Ted Goddard on 2015-01-14.
+  Copyright (c) 2015 Robots and Pencils Inc. All rights reserved.
+*/
+
 /*Force Canvas preview to show iPad portrait size*/
 .show-content {
     min-height: 600px;
