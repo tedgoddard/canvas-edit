@@ -93,7 +93,7 @@ TEx.addToolbar = function() {
     document.body.appendChild(toolDiv);
 }
 
-if (onPage("/edit")) {
+if (TEx.onPage("/edit")) {
     TEx.addToolbar();
 }
 
