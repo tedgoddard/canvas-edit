@@ -93,8 +93,11 @@ TEx.addToolbar = function() {
     document.body.appendChild(toolDiv);
 }
 
-if (window.tinyMCE && TEx.onPage("/edit")) {
+if (onPage("/edit")) {
     addToolbar();
+}
+
+if (window.tinyMCE && TEx.onPage("/edit")) {
     var oldInit = tinyMCE.init;
     tinyMCE.init = function() {
       console.log("MonkeyPatch tinyMCE arguments " + JSON.stringify(arguments[0]));
